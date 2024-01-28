@@ -41,7 +41,7 @@ def train_image_diffusion(cfg):
 
     tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name)
     trainer = pl.Trainer(max_steps=training_steps,
-                         gpu=1, auto_select_gpus=True,
+                         gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
                          callbacks=model_callbacks)
 
@@ -75,7 +75,7 @@ def train_video_predictor(cfg):
 
     tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_predictor')
     trainer = pl.Trainer(max_steps=training_steps,
-                         gpu=1, auto_select_gpus=True,
+                         gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
                          callbacks=model_callbacks)
 
@@ -108,7 +108,7 @@ def train_video_projector(cfg):
 
     tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_projector')
     trainer = pl.Trainer(max_steps=training_steps,
-                         gpu=1, auto_select_gpus=True,
+                         gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
                          callbacks=model_callbacks)
 
@@ -141,7 +141,7 @@ def train_video_interpolator(cfg):
 
     tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_interpolator')
     trainer = pl.Trainer(max_steps=training_steps,
-                         gpu=1, auto_select_gpus=True,
+                         gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
                          callbacks=model_callbacks)
 
