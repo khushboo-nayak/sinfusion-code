@@ -39,7 +39,7 @@ def train_image_diffusion(cfg):
     model_callbacks.append(pl.callbacks.ModelCheckpoint(filename='single-level-{step}', save_last=True,
                            save_top_k=3, monitor='train_loss', mode='min'))
 
-    tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name)
+    tb_logger = pl.loggers.TensorBoardLogger("/kaggle/input/sinfusion-data1/SinFusion Data/checkpoints/lightning_logs/", name=cfg.image_name, version=cfg.run_name)
     trainer = pl.Trainer(max_steps=training_steps,
                          gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
@@ -73,7 +73,7 @@ def train_video_predictor(cfg):
                        pl.callbacks.ModelCheckpoint(filename='single-level-{step}', save_last=True,
                                                     save_top_k=3, monitor='train_loss', mode='min')]
 
-    tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_predictor')
+    tb_logger = pl.loggers.TensorBoardLogger("/kaggle/input/sinfusion-data1/SinFusion Data/checkpoints/lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_predictor')
     trainer = pl.Trainer(max_steps=training_steps,
                          gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
@@ -106,7 +106,7 @@ def train_video_projector(cfg):
                        pl.callbacks.ModelCheckpoint(filename='single-level-{step}', save_last=True,
                                                     save_top_k=3, monitor='train_loss', mode='min')]
 
-    tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_projector')
+    tb_logger = pl.loggers.TensorBoardLogger("/kaggle/input/sinfusion-data1/SinFusion Data/checkpoints/lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_projector')
     trainer = pl.Trainer(max_steps=training_steps,
                          gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
@@ -139,7 +139,7 @@ def train_video_interpolator(cfg):
                        pl.callbacks.ModelCheckpoint(filename='single-level-{step}', save_last=True,
                                                     save_top_k=3, monitor='train_loss', mode='min')]
 
-    tb_logger = pl.loggers.TensorBoardLogger("lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_interpolator')
+    tb_logger = pl.loggers.TensorBoardLogger("/kaggle/input/sinfusion-data1/SinFusion Data/checkpoints/lightning_logs/", name=cfg.image_name, version=cfg.run_name + '_interpolator')
     trainer = pl.Trainer(max_steps=training_steps,
                          gpus=1, auto_select_gpus=True,
                          logger=tb_logger, log_every_n_steps=10,
